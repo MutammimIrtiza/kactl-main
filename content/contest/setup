@@ -1,0 +1,7 @@
+mkdir -p ~/bin
+code ~/bin/d
+chmod +x ~/bin/d
+vim ~/.bashrc
+add line : export PATH="$HOME/bin:$PATH" [save and exit :wq]
+source ~/.bashrc
+for i in {A..J};  do  cp  -r  template_folder  $i;  done; 

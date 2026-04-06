@@ -1,0 +1,11 @@
+#!/bin/bash
+for inp in in in[0-9]*; do
+    if [ -f $inp ]; then
+        echo 
+        echo "Input: $inp"
+        cat $inp
+        echo Output:
+        ./a.out < $inp
+        echo 
+    fi
+done

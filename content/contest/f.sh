@@ -1,0 +1,1 @@
+g++ -std=c++17 -O2 -Wno-unused-result code.cpp -o a.out
