@@ -11,7 +11,6 @@
  * Status: tested
  */
 #pragma once
-
 template<class T, int N> struct Matrix {
 	typedef Matrix M;
 	array<array<T, N>, N> d{};
@@ -26,6 +25,11 @@ template<class T, int N> struct Matrix {
 		rep(i,0,N) rep(j,0,N) ret[i] += d[i][j] * vec[j];
 		return ret;
 	}
+	static M identity() {
+        M I;
+        rep(i,0,N) I.d[i][i] = 1;
+        return I;
+    }
 	M operator^(ll p) const {
 		assert(p >= 0);
 		M a, b(*this);

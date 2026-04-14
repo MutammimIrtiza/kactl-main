@@ -1,12 +1,12 @@
 /**
- * Author: idk
+ * Author: ...
  * Date: 2015-06-23
  * License: CC0
- * Source: idk
- * Description: idk
+ * Source: ...
+ * Description: ...
  *
- * Time: idk
- * Status: idk
+ * Time: ...
+ * Status: ...
  */
 #pragma once
 const int N = 1e7;

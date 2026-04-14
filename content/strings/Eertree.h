@@ -1,22 +1,38 @@
 /**
- * Author: idk
- * Description: idk
- * Time: idk
- * Status: idk
+ * Author: ...
+ * Description: ...
+ * Time: ...
+ * Status: ...
  */
-// len = length of palindrome represented by this node
-// link = points to longest proper palindromic suffix
-// st, en = some starting and ending index of this palindrome
-// oc = number of occurences of this palindrome 
-// cnt = number of palindromic suffixes of this palindrome
-// [used  in problems like: how many palindromes end at each pos]
+sz - 2 // no. of distinct palindromes
+no. of unique palindromes is linear !!! may use with hashing
+
+use cnt during construction. After extend(i):
+last = node representing the longest palindrome ending at pos i
+pt.t[pt.last].cnt; // no. of pals ending here, smaller included
+
+use oc after calc. 
+t[i].oc //no. of occurence of this exact pal[smaller excluded]
+sum(t[i].oc) // total no. of palindromic substrings
+
 struct PalindromicTree {
-  struct node { int nxt[26], len, st, en, link; ll cnt, oc;  };
-  string s;    vector<node> t;    int sz, last;
+  struct node {
+    int nxt[26]; // transitions (adding char to both ends)
+    int len;     // length of palindrome
+    int st, en;  // start and end index in original string
+    int link;    // suffix link (largest palindromic suffix)
+    ll cnt;      // no. of palindromic suffixes ending here
+    ll oc;       // no. of occurrences of this palindrome
+  };
+  string s;
+  vector<node> t;
+  int sz, last;
   PalindromicTree() {}
   PalindromicTree(string _s) {
-    s = _s;   int n = s.size();
-    t.clear();   t.resize(n + 9);
+    s = _s;
+    int n = s.size();
+    t.clear();
+    t.resize(n + 9);
     sz = 2, last = 2;
     t[1].len = -1, t[1].link = 1;
     t[2].len = 0, t[2].link = 1;
@@ -31,24 +47,31 @@ struct PalindromicTree {
     }
     if (t[cur].nxt[ch]) {
       last = t[cur].nxt[ch];
-      t[last].oc++;  return 0;
+      t[last].oc++;
+      return 0;
     }
-    sz++;  last = sz;
+    sz++;
+    last = sz;
     t[sz].oc = 1;
     t[sz].len = t[cur].len + 2;
     t[cur].nxt[ch] = sz;
     t[sz].en = pos;
     t[sz].st = pos - t[sz].len + 1;
     if (t[sz].len == 1) {
-      t[sz].link = 2;  t[sz].cnt = 1;  return 1;
+      t[sz].link = 2;
+      t[sz].cnt = 1;
+      return 1;
     }
     while (1) {
-      cur = t[cur].link;  curlen = t[cur].len;
-      if (pos - 1 - curlen >= 0 && s[pos-1-curlen] == s[pos]) {
-        t[sz].link = t[cur].nxt[ch];  break;
+      cur = t[cur].link;
+      curlen = t[cur].len;
+      if (pos-1-curlen >= 0 && s[pos-1-curlen] == s[pos]) {
+        t[sz].link = t[cur].nxt[ch];
+        break;
       }
     }
-    t[sz].cnt = 1 + t[t[sz].link].cnt;  return 1;  
+    t[sz].cnt = 1 + t[t[sz].link].cnt;
+    return 1;
   }
   void calc_occurrences() {
     for (int i = sz; i >= 3; i--) t[t[i].link].oc += t[i].oc;
