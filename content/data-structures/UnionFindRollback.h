@@ -10,15 +10,18 @@
  * Status: tested as part of DirectedMST.h
  */
 #pragma once
-
-struct RollbackUF {
-	vi e; vector<pii> st;
-	RollbackUF(int n) : e(n, -1) {}
+// c = current no. of components
+// time() returns current checkpoint
+// rollback(x) rolls back to checkpoint x
+struct DSU {
+	vi e; vector<pii> st; int c; 
+	DSU(int n) : e(n, -1), c(n) {}
 	int size(int x) { return -e[find(x)]; }
 	int find(int x) { return e[x] < 0 ? x : find(e[x]); }
 	int time() { return sz(st); }
 	void rollback(int t) {
-		for (int i = time(); i --> t;)
+		c += (time() - t) / 2;
+		for (int i = time(); i --> t; )
 			e[st[i].first] = st[i].second;
 		st.resize(t);
 	}
@@ -29,6 +32,7 @@ struct RollbackUF {
 		st.push_back({a, e[a]});
 		st.push_back({b, e[b]});
 		e[a] += e[b]; e[b] = a;
+		--c;
 		return true;
 	}
 };
