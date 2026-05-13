@@ -5,7 +5,6 @@
  * Usage: ...
  * Status: ...
  */
-
 const int MAXV = (int)1e9 + 9;//max val of any element in array
 //array values can be negative too, so \
  use appropriate minimum and maximum value
