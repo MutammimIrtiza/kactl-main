@@ -5,6 +5,13 @@
  * Status: ...
  */
 
+ /*
+  Every substring can be formed with transitions from root.
+  Each node represents some substrings, longest being of 
+    length maxlen, shortest = suflink.maxlen + 1
+so, no. of unique substrings = sum of all (maxlen - minlen + 1)
+  
+ */
 struct SAM{
  struct State{
   int link, maxlen;
