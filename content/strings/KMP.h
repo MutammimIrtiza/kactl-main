@@ -4,11 +4,11 @@
  * License: CC0
  * Description: 
  * Time: O(n)
- * Status: Tested on kattis:stringmatching
+ * Status: ...
  */
 #pragma once
-
-// for each position (0 based ***) of s, what is the best match of a suffix at that position with a prefix of s
+// for each position (0 based***) of s, what is the best match
+// of a suffix at that position with a prefix of s
 vector<int> prefixFunction(const string& s){
   int n=s.size();  vector<int> pi(n);  pi[0]=0;
   for(int i=1;  i<n;  ++i){
@@ -19,10 +19,11 @@ vector<int> prefixFunction(const string& s){
   }
   return pi; 
 }
-
 // if the automaton is built on string s, then :
-// aut[j][ch] = if i'm scanning/constructing some string and rn the best match between prefix_of_s and suffix_of_MY_string 
-// is of LENGTH j, and the next scanned/put character is ch, then what would be the best matched LENGTH
+// aut[j][ch] = if i'm scanning/constructing some string and rn
+// the best match between prefix_of_s and suffix_of_MY_string 
+// is of LENGTH j, and the next scanned/put character is ch,
+// then what would be the best matched LENGTH
 vector<vector<int>> prefixAutomaton(const string& s){
   int m = s.size(); 
   vector<int> pi = prefixFunction(s);

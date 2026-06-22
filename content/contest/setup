@@ -1,7 +1,5 @@
-mkdir -p ~/bin
-code ~/bin/d
-chmod +x ~/bin/d
-vim ~/.bashrc
-add line : export PATH="$HOME/bin:$PATH" [save and exit :wq]
-source ~/.bashrc
-for i in {A..J};  do  cp  -r  template_folder  $i;  done; 
+create d,c,f,run,code.cpp in foo.
+for i in {A..J};  do  cp  -r  foo  $i;  done; 
+for i in {A..J};  do  chmod  +x  $i/d;  done;
+create debug.h in foo.
+for i in {A..J};  do  cp  foo/debug.h  $i;  done;

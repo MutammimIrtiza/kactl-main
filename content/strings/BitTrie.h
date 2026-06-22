@@ -55,6 +55,6 @@ struct BitTrie{
     if(nextbit) y = setbit(y,bit); 
    } 
   }
-  return x^y; 
+  return y; //return x^y if you need the xor
  }
 };

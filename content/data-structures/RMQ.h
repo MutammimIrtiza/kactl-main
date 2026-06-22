@@ -12,20 +12,29 @@
  * Status: stress-tested
  */
 #pragma once
-
 template<class T>
 struct RMQ {
-	vector<vector<T>> jmp;
-	RMQ(const vector<T>& V) : jmp(1, V) {
-		for (int pw = 1, k = 1; pw * 2 <= sz(V); pw *= 2, ++k) {
-			jmp.emplace_back(sz(V) - pw * 2 + 1);
-			rep(j,0,sz(jmp[k]))
-				jmp[k][j] = min(jmp[k - 1][j], jmp[k - 1][j + pw]);
-		}
-	}
-	T query(int a, int b) {
-		assert(a < b); // or return inf if a == b
-		int dep = 31 - __builtin_clz(b - a);
-		return min(jmp[dep][a], jmp[dep][b - (1 << dep)]);
-	}
+    const vector<T>& V;
+    vector<vector<int>> jmp;
+    RMQ(const vector<T>& V) : V(V), jmp(1, vector<int>(sz(V))) {
+        rep(i,0,sz(V)) jmp[0][i] = i;
+        for (int pw = 1, k = 1; pw * 2 <= sz(V); pw *= 2, ++k) {
+            jmp.emplace_back(sz(V) - pw * 2 + 1);
+            rep(j,0,sz(jmp[k])) {
+                int a = jmp[k - 1][j];
+                int b = jmp[k - 1][j + pw];
+                jmp[k][j] = (V[a] <= V[b] ? a : b);
+            }
+        }
+    }
+    int queryIdx(int a, int b) {
+        assert(a < b);
+        int dep = 31 - __builtin_clz(b - a);
+        int i = jmp[dep][a];
+        int j = jmp[dep][b - (1 << dep)];
+        return (V[i] <= V[j] ? i : j);
+    }
+    T query(int a, int b) {
+        return V[queryIdx(a, b)];
+    }
 };

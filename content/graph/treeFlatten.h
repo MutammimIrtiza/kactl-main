@@ -13,7 +13,7 @@ void euler_tour(ll node, ll par) {
         euler_tour(ch, node);
     }
     out[node] = timer;
-}   
+}
 //  usage :
     euler_tour(1, 0);
     vll flat_tree(n);

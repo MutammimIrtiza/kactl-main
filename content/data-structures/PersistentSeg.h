@@ -50,7 +50,6 @@ struct PersistentSegTree {
     // CUSTOM:
 
     // Collect all ids in this version whose stored v >= need.
-    // We traverse left first, so ids are collected in increasing order.
     // Problem statement bounds total leaves accessed, so its not costly
     void collect(int node, int tl, int tr, ll v_need, vector<int>& out) const {
         if (node == 0 || st[node].mx < v_need) return;

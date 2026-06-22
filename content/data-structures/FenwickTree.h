@@ -9,7 +9,11 @@
  * Status: Stress-tested
  */
 #pragma once
-
+/*
+	For range add + point qry:
+	to add x to [l,r] do: update(l,x) and update(r+1,-x)
+	then point qry at pos becomes : query(pos+1)
+*/
 struct FT {
 	vector<ll> s;
 	FT(int n) : s(n) {}

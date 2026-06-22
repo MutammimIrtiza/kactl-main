@@ -22,7 +22,6 @@ struct Aho{
     } 
   };
  vector<Vertex> t = {Vertex()}; // root = state 0
-
  void add_string(const string& s,int id){
   int v=0;
   for(char ch:s){
@@ -34,7 +33,6 @@ struct Aho{
   }
   t[v].output=true; t[v].ids.push_back(id); 
  }
-
  void build_automaton(){ // build the automaton T.T
   queue<int> q;
   t[0].link=0;  t[0].term_link=0;
@@ -59,7 +57,6 @@ struct Aho{
    else t[v].term_link = t[t[v].link].term_link; 
   } 
  }
-
  void form_tree(){
     gr.resize(t.size());
     L(state,1,t.size()-1){

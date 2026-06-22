@@ -18,7 +18,6 @@ struct Trie{
  };
  vector<Node> nodes;
  Trie(){ nodes.emplace_back(); } // root node
-
  void insert(const string& s){
   int cur=0;
   for(char ch:s){
@@ -30,7 +29,6 @@ struct Trie{
   }
   nodes[cur].ends_here_cnt++; 
  }
-
  bool erase(const string& s){
   if(!search(s)) return false;
   int cur=0;
@@ -41,7 +39,6 @@ struct Trie{
   nodes[cur].ends_here_cnt--; 
   return true; 
  }
-
  bool search(const string& s)const{
   int cur=0;
   for(char ch:s){
@@ -52,7 +49,6 @@ struct Trie{
   }
   return nodes[cur].ends_here_cnt>0; 
 }
-
  bool starts_with(const string& prefix)const{
   int cur=0;
   for(char ch:prefix){
@@ -63,7 +59,6 @@ struct Trie{
   }
   return true; 
  }
-
  int count_prefix(const string& prefix)const{
   int cur=0;
   for(char ch:prefix){
