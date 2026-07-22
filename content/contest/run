@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 for inp in in in[0-9]*; do
     if [ -f $inp ]; then
         echo 

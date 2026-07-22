@@ -27,12 +27,12 @@ struct RMQ {
             }
         }
     }
-    int queryIdx(int a, int b) {
+    int queryIdx(int a, int b) { // leftmost for tie breaking
         assert(a < b);
         int dep = 31 - __builtin_clz(b - a);
         int i = jmp[dep][a];
         int j = jmp[dep][b - (1 << dep)];
-        return (V[i] <= V[j] ? i : j);
+        return (V[i] <= V[j] ? i : j); // use < for rightmost
     }
     T query(int a, int b) {
         return V[queryIdx(a, b)];

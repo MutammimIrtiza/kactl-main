@@ -1,0 +1,9 @@
+#!/bin/bash
+if ! g++ -std=c++23 -DLOCAL -Wshadow -Wall -g \
+ -fsanitize=address,undefined -D_GLIBCXX_DEBUG \
+ -fmax-errors=1 code.cpp -o a
+then
+    exit 1
+fi
+echo Compiled!
+./a
