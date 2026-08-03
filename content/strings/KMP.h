@@ -1,10 +1,7 @@
 /**
- * Author: Johan Sannemo
- * Date: 2016-12-15
- * License: CC0
- * Description: 
- * Time: O(n)
- * Status: ...
+ * Author:
+ * Date: 
+ * Description:
  */
 #pragma once
 // for each position (0 based***) of s, what is the best match

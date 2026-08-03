@@ -1,8 +1,7 @@
 /**
- * Author: Unknown
- * Date: 2002-09-15
- * Source: gemini
- * Description: ...
+ * Author:
+ * Date: 
+ * Description:
  */
 const ll INF = 2e18; 
 

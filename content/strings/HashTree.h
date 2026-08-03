@@ -1,8 +1,7 @@
 /**
- * Author: cses
- * Description: point updates in a string + hashing
- * Time: ...
- * Status: ...
+ * Author:
+ * Date: 
+ * Description:
  */
 mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 const ll M = 991831889;

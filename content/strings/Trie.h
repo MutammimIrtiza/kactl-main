@@ -1,10 +1,8 @@
 /**
- * Author: ...
- * Description: ...
- * Time: ...
- * Status: ...
+ * Author:
+ * Date: 
+ * Description:
  */
-
 struct Trie{
  static const int ALPHABET=26;
  static const char BASE='a';

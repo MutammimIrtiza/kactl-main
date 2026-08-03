@@ -1,10 +1,8 @@
 /**
- * Author: ...
- * Description: ...
- * Time: ...
- * Status: ...
+ * Author:
+ * Date: 
+ * Description:
  */
-
 struct BitTrie{
  struct Node{
     int child[2],cnt;//trie[0]=total numbers inserted in trie

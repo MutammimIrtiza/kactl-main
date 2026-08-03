@@ -1,11 +1,7 @@
 /**
- * Author: Simon Lindholm
- * Date: 2015-02-18
- * License: CC0
- * Source: marian's (TC) code
- * Description: ...
- * Time: linear
- * Status: stress-tested
+ * Author:
+ * Date: 
+ * Description:
  */
 #pragma once
 

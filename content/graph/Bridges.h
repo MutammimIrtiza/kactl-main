@@ -1,10 +1,8 @@
 /**
- * Author: ...
- * Description: ...
- * Time: ...
- * Status: ...
+ * Author:
+ * Date: 
+ * Description:
  */
-
 struct BridgesAndCuts{
  int n,timer=0;
  vector<vector<int>> g;

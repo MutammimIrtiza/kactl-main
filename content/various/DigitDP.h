@@ -1,10 +1,8 @@
 /**
- * Author: ...
- * Description: ...
- * Time: ...
- * Status: ...
+ * Author:
+ * Date: 
+ * Description:
  */
-
 ll n,m,k,q;
 ll a[N];
 ll dp[][11][2][2]; // put max len of string + 1

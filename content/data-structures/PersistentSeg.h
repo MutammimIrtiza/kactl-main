@@ -1,11 +1,7 @@
 /**
- * Author: Simon Lindholm
- * Date: 2016-10-08
- * License: CC0
- * Source: me
- * Description: ...
- * Time: ...
- * Status: ...
+ * Author:
+ * Date: 
+ * Description:
  */
 static const ll INF = -(1LL << 60);
 struct PersistentSegTree {

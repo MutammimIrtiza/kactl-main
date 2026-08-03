@@ -3,10 +3,10 @@
  * Date: 2016-10-08
  * License: CC0
  * Source: me
- * Description: ...
+ * Description: 
  * Time: log square n
  * Usage: one based grid, and all inclusive
- * Status: ...
+ * Status: 
  */
 
 const int TREE_SIZE = 1 << 10;

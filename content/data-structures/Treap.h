@@ -1,10 +1,7 @@
 /**
- * Author: chatgpt
- * Date: ...
- * Source: ...
- * Description: ...
- * Time: $O(\log N)$
- * Status: ...
+ * Author:
+ * Date: 
+ * Description:
  */
 #pragma once
 
