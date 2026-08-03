@@ -37,14 +37,15 @@
 	\subsection{Lucas' Theorem}
 		Let $n,m$ be non-negative integers and $p$ a prime. Write $n=n_kp^k+...+n_1p+n_0$ and $m=m_kp^k+...+m_1p+m_0$. Then $\binom{n}{m} \equiv \prod_{i=0}^k\binom{n_i}{m_i} \pmod{p}$.
 
-	\subsection{Hockey Stick Theorem}
+	\subsection{Combinatorial Identities}
+		\subsubsection{Hockey Stick Identity:}
 		\[ \sum_{i=r}^{n} \binom{i}{r} = \binom{n+1}{r+1} \]
-
-	\subsection{Vandermonde's Theorem}
+		\subsubsection{Vandermonde Identity:}
 		\[ \binom{m+n}{r} = \sum_{k=0}^{r} \binom{m}{k}\binom{n}{r-k} \]
-
-	\subsection{Binomial Coefficient Identity}
+		\subsubsection{Others:}
 		\[ (x+1) \binom{x}{k-1} = k \binom{x+1}{k} \]
+		\[ \sum_{k=0}^{n} \binom{n}{k}^2 = \binom{2n}{n} \]
+		\[ \sum_{k=0}^{n} \binom{n}{k} = 2^n \]
 
 	\subsection{Binomials}
 		\kactlimport{multinomial.h}
