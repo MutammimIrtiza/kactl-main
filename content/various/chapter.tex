@@ -26,6 +26,29 @@
 % 			\item \verb@c = x&-x, r = x+c; (((r^x) >> 2)/c) | r@ is the next number after \texttt{x} with the same number of bits set.
 % 			\item \verb@rep(b,0,K) rep(i,0,(1 << K))@ \\ \verb@  if (i & 1 << b) D[i] += D[i^(1 << b)];@ computes all sums of subsets.
 % 		\end{itemize}
+	\section{Bitwise Identities}
+
+	\subsection*{Some properties of bitwise operations}
+	\begin{itemize}
+	  \item $a|b = a\oplus b + a\&b$
+	  \item $a\oplus(a\&b) = (a|b)\oplus b$
+	  \item $b\oplus(a\&b) = (a|b)\oplus a$
+	  \item $(a\&b)\oplus(a|b) = a\oplus b$
+	\end{itemize}
+
+	\subsection*{Addition}
+	\begin{itemize}
+	  \item $a+b = a|b + a\&b$
+	  \item $a+b = a\oplus b + 2(a\&b)$
+	\end{itemize}
+
+	\subsection*{Subtraction}
+	\begin{itemize}
+	  \item $a-b = (a\oplus(a\&b))-((a|b)\oplus a)$
+	  \item $a-b = ((a|b)\oplus b)-((a|b)\oplus a)$
+	  \item $a-b = (a\oplus(a\&b))-(b\oplus(a\&b))$
+	  \item $a-b = ((a|b)\oplus b)-(b\oplus(a\&b))$
+	\end{itemize}
 % 	\subsection{Pragmas}
 % 		\begin{itemize}
 % 			\item \lstinline{#pragma GCC optimize ("Ofast")} will make GCC auto-vectorize loops and optimizes floating points better.
