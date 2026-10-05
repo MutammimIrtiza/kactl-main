@@ -1,10 +1,10 @@
 /**
- * Author: ...
- * License: ...
- * Source: ...
+ * Author: 
+ * License: 
+ * Source: 
  * Description: the dnc sol for cses subarray squares
  * Time: k*n*log(n) here
- * Status: ...
+ * Status: 
  */
 #pragma once
 /*
