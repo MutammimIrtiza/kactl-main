@@ -4,12 +4,13 @@
  * Description:
  */
 /*
-  Every substring can be formed with transitions from root.
-  Each node represents some substrings, longest being of 
-    length maxlen, shortest = suflink.maxlen + 1
-so, no. of unique substrings = sum of all (maxlen - minlen + 1)
-  
-*/
+ * 1. 1-to-1 Match: Paths starting from root (state 0) correspond 1-to-1 with all distinct substrings of S.
+ * 2. Equivalence Class: Each state represents a set of substrings sharing the exact same endpos set.
+ * 3. Length Range: Substrings in state u form a contiguous length interval [len(link(u)) + 1, len(u)].
+ * 4. Suffix Link: Points to the state containing the longest suffix of u with a larger endpos set (forms a tree).
+ * 5. Transitions: Transition u --c--> v appends 'c' to all strings in u into state v (len(v) >= len(u) + 1).
+ * 6. Terminals: States containing suffixes of S (found by following suffix links from the final state).
+ */
 struct SAM{
  struct State{
   int link, maxlen;

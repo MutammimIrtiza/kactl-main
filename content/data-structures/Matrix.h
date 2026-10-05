@@ -3,7 +3,6 @@
  * Date: 
  * Description:
  */
-#pragma once
 template<class T> struct Matrix {
     typedef Matrix M;
     int n;
