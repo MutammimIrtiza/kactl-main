@@ -1,17 +1,14 @@
 /**
- * Author: Simon Lindholm
- * Date: 2016-08-27
- * License: CC0
- * Source: own work
- * Description: Solves $Ax = b$ over $\mathbb F_2$. If there are multiple solutions, one is returned arbitrarily.
+ * Author: Simon Lindholm + Gemini
+ * Date: 2026-08-10
+ * Description: Solves $Ax = b$ over $\mathbb F_2$. If there are multiple solutions, one is returned arbitrarily. If $b=0$, returns non-zero solution if it exists (rank < m).
  *  Returns rank, or -1 if no solutions. Destroys $A$ and $b$.
  * Time: O(n^2 m)
  * Status: bruteforce-tested for n, m <= 4
  */
 #pragma once
 
-typedef bitset<1000> bs;
-
+typedef bitset<1500> bs; // max. no. of variables
 int solveLinear(vector<bs>& A, vi& b, bs& x, int m) {
 	int n = sz(A), rank = 0, br;
 	assert(m <= sz(x));
@@ -35,12 +32,12 @@ int solveLinear(vector<bs>& A, vi& b, bs& x, int m) {
 		}
 		rank++;
 	}
-
 	x = bs();
-	for (int i = rank; i--;) {
-		if (!b[i]) continue;
-		x[col[i]] = 1;
-		rep(j,0,i) b[j] ^= A[j][i];
-	}
-	return rank; // (multiple solutions if rank < m)
+    if (rank < m) x[col[rank]] = 1; 
+    for (int i = rank - 1; i >= 0; --i) {
+        int v = b[i]; 
+        for(int j = i+1; j<m; ++j) v ^= (A[i][j] & x[col[j]]);
+        x[col[i]] = v;
+    }
+    return rank;
 }

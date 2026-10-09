@@ -3,6 +3,7 @@
  * Date: 2004-02-08
  * License: CC0
  * Description: Solves $A * x = b$. If there are multiple solutions, an arbitrary one is returned.
+ * If $b=0$, returns non-zero solution if it exists (rank < m).
  *  Returns rank, or -1 if no solutions. Data in $A$ and $b$ is lost.
  * Time: O(n^2 m)
  * Status: tested on kattis:equationsolver, and bruteforce-tested mod 3 and 5 for n,m <= 3
@@ -40,10 +41,10 @@ int solveLinear(vector<vd>& A, vd& b, vd& x) {
 	}
 
 	x.assign(m, 0);
+	if (rank < m) x[col[rank]] = 1;
 	for (int i = rank; i--;) {
-		b[i] /= A[i][i];
-		x[col[i]] = b[i];
-		rep(j,0,i) b[j] -= A[j][i] * b[i];
+		rep(j,i+1,m) b[i] -= A[i][j] * x[col[j]];
+		x[col[i]] = b[i] / A[i][i];
 	}
 	return rank; // (multiple solutions if rank < m)
 }
