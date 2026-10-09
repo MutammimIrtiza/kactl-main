@@ -21,6 +21,7 @@ struct MergeSortTree {
                    tree[2 * node + 1].begin(), tree[2 * node + 1].end(),
                    back_inserter(tree[node]));
     }
+    
     // Example Method: Count elements strictly greater than k in range [ql, qr]
     int query_gt(int node, int l, int r, int ql, int qr, int k) {
         if (qr < l || ql > r) return 0;

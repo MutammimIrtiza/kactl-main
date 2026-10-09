@@ -5,7 +5,7 @@
 \usepackage[utf8]{inputenc}             % Encoding UTF-8
 \usepackage{listings}                   % Source code listings
 \usepackage{framed}               % Source code listings
-\usepackage[a4paper,landscape,hmargin={0.45cm,0.45cm},vmargin={1.1cm,0.3cm}]{geometry}
+\usepackage[a4paper,landscape,hmargin={0.45cm,0.45cm},vmargin={1.1cm,0.4cm}]{geometry}
 \usepackage{multicol}                   % Split page in multiple columns
 \usepackage{fancyhdr}                   % Fancy headers
 \usepackage{amsbsy, amssymb, amsmath}   % Enable math symbols
@@ -146,7 +146,7 @@
 
 \renewcommand\subsection{\@startsection{subsection}{2}{\z@}
 	{1ex\@plus -1ex \@minus -.3ex}
-	{.2ex}
+	{.6ex}
 	{\normalfont\large\bfseries}}
 
 \renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}
@@ -276,7 +276,7 @@
 	\setboolean{hasmemory}{false}
 	\setboolean{hasleftcaption}{false}
 	\myneedspace{\baselineskip}
-	{\large #2}
+	{\large\bfseries #2}
 	\immediate\write18{rm -f \@builddir/kactl.tmp} % Don't include old kactl.tmp on failure.
 	\immediate\write18{python3 content/tex/preprocessor.py -i "\@kactldir/#2" -o \@builddir/kactl.tmp #1}
 	\immediate\input{\@builddir/kactl.tmp}
