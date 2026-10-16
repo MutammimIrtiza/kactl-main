@@ -7,7 +7,6 @@ struct mint{
  mint& operator*=(mint b){ x=(x * b.x)%mod; return *this; }
  mint& operator-=(mint b){ x=(x - b.x +mod)%mod; return *this;}
  mint& operator/=(mint b){ return *this *= b.inv(); }
-
  friend mint operator+(mint a,mint b){ return a+=b; }
  friend mint operator-(mint a,mint b){ return a-=b; }
  friend mint operator*(mint a,mint b){ return a*=b; }
@@ -26,7 +25,6 @@ struct mint{
 	while(n) { if(n&1)res*=a;  a*=a;  n>>=1;}
 	return res; 
  }
-
   explicit operator bool() const { return x != 0; }
   friend ostream& operator<<(ostream& os, const mint& m) \
    { return os << m.x; }
